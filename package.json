@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "my portfolio",
   "main": "index.js",
+  "engines": {
+    "node": "18.17.0"
+  },
   "scripts": {
     "start": "index.js",
     "dev": "npx nodemon index.js"
