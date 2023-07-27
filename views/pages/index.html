@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/66aa7c98b3.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="home" class="home">
+      <header>
+        <div>
+          <!-- <img id="logo" src="assets/logo-no-bg.png" alt="" srcset="" /> -->
+          <a href="#home">suhailsola</a>
+        </div>
+
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+          <li class="nav-item">
+            <a href="#about-me" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#projects" class="nav-link">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Contact</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bars"></span>
+          <span class="bars"></span>
+          <span class="bars"></span>
+        </div>
+      </header>
+      <div class="container">
+        <div class="white-background">
+          <h3>Hey, my name is</h3>
+          <h1>Muhammad Suhail</h1>
+          <p>
+            a developer-to-be at @invokeisdata. Always wanted to explore the
+            software industry and now here I am
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="about-me" class="about-me">
+      <h1>About Me</h1>
+      <div class="container">
+        <div id="profile">
+          <div class="profile-photo">
+            <img src="assets/suhail.png" alt="" />
+            <h4>Suhail | Software Developer-to-be</h4>
+            <button id="resume">Download Resume</button>
+          </div>
+          <div class="bio">
+            <!-- collapsible -->
+            <div class="wrap-collabsible">
+              <input id="myself" class="toggle" type="checkbox" checked />
+              <label for="myself" class="lbl-toggle">Myself</label>
+              <div class="collapsible-content">
+                <div class="content-inner">
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Earum obcaecati dolorem incidunt atque eos iure consequatur
+                    sequi dolorum, ab nemo sunt maiores aliquid dolores
+                    molestiae voluptatum, rerum suscipit! Aperiam, obcaecati.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="wrap-collabsible">
+              <input id="edu" class="toggle" type="checkbox" />
+              <label for="edu" class="lbl-toggle">Education</label>
+              <div class="collapsible-content">
+                <div class="content-inner">
+                  <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Similique officia voluptate minima omnis explicabo maiores
+                    totam ipsam voluptatum eveniet vero aspernatur, cumque optio
+                    dolorem impedit, asperiores possimus rem, odio soluta.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="wrap-collabsible">
+              <input id="exp" class="toggle" type="checkbox" />
+              <label for="exp" class="lbl-toggle">Experience</label>
+              <div class="collapsible-content">
+                <div class="content-inner">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Similique, illo optio quam sequi, obcaecati doloremque error
+                    delectus soluta, enim impedit unde vero itaque iure ipsa.
+                    Nisi necessitatibus totam laudantium facere?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="activities">
+          <h1>How I spent my free time</h1>
+          <div class="my-activities">
+            <div id="football">
+              <h3>Football</h3>
+              <div class="photo-container">
+                <!-- Slideshow container -->
+                <div class="slideshow-container fade">
+                  <!-- Full images with numbers and message Info -->
+                  <div class="photos">
+                    <img src="./assets/IMG_9301.JPG" style="width: 100%" />
+                  </div>
+                  <div class="photos">
+                    <img src="./assets/ACK_3323.JPG" style="width: 100%" />
+                  </div>
+
+                  <div class="photos">
+                    <img src="./assets/ACK_3324.JPG" style="width: 100%" />
+                  </div>
+
+                  <div class="photos">
+                    <img src="./assets/ACK_3398.JPG" style="width: 100%" />
+                  </div>
+
+                  <!-- Back and forward buttons -->
+                  <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
+                  <a class="forward" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+              </div>
+            </div>
+            <div id="hiking">
+              <h3>Hiking</h3>
+              <div class="photo-container">
+                <!-- Slideshow container -->
+                <div class="slideshow-container fade">
+                  <!-- Full images with numbers and message Info -->
+                  <div class="photos">
+                    <img src="./assets/IMG_9301.JPG" style="width: 100%" />
+                  </div>
+                  <div class="photos">
+                    <img src="./assets/ACK_3323.JPG" style="width: 100%" />
+                  </div>
+
+                  <div class="photos">
+                    <img src="./assets/ACK_3324.JPG" style="width: 100%" />
+                  </div>
+
+                  <div class="photos">
+                    <img src="./assets/ACK_3398.JPG" style="width: 100%" />
+                  </div>
+
+                  <!-- Back and forward buttons -->
+                  <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
+                  <a class="forward" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+              </div>
+            </div>
+            <div id="running">
+              <h3>Running</h3>
+              <div class="photo-container">
+                <!-- Slideshow container -->
+                <div class="slideshow-container fade">
+                  <!-- Full images with numbers and message Info -->
+                  <div class="photos">
+                    <img src="./assets/IMG_9301.JPG" style="width: 100%" />
+                  </div>
+                  <div class="photos">
+                    <img src="./assets/ACK_3323.JPG" style="width: 100%" />
+                  </div>
+
+                  <div class="photos">
+                    <img src="./assets/ACK_3324.JPG" style="width: 100%" />
+                  </div>
+
+                  <div class="photos">
+                    <img src="./assets/ACK_3398.JPG" style="width: 100%" />
+                  </div>
+
+                  <!-- Back and forward buttons -->
+                  <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
+                  <a class="forward" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="projects" class="projects">
+      <h1>Projects</h1>
+      <div class="my-projects">
+        <div class="card">
+          <div class="holder">
+            <a
+              href="https://htmlpreview.github.io/?https://github.com/suhailsola/set-2023-day-7/blob/main/Assesment/index.html"
+              target="_blank"
+            >
+              <img src="/assets/calculator.jpg" alt="" />
+            </a>
+          </div>
+          <h3>
+            <a
+              href="https://htmlpreview.github.io/?https://github.com/suhailsola/set-2023-day-7/blob/main/Assesment/index.html"
+              target="_blank"
+              >Calculator</a
+            >
+          </h3>
+          <p style="text-align: center">
+            A useful tool to calculate your daily spending
+          </p>
+        </div>
+        <div class="card" id="dictionary">
+          <h3>
+            <a
+              href="https://htmlpreview.github.io/?https://github.com/suhailsola/set-2023-day-9/blob/main/Assesment/Dictionary/index.html"
+              target="_blank"
+              >Dictionary</a
+            >
+          </h3>
+          <p>Helpful when you meet mat jargon</p>
+          <div class="holder">
+            <a
+              href="https://htmlpreview.github.io/?https://github.com/suhailsola/set-2023-day-9/blob/main/Assesment/Dictionary/index.html"
+              target="_blank"
+            >
+              <img src="/assets/dict.png" alt="" />
+            </a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="holder">
+            <a
+              href="https://htmlpreview.github.io/?https://github.com/suhailsola/set-2023-day-9/blob/main/Assesment/index.html"
+              target="_blank"
+            >
+              <img src="/assets/pokemon.jpg" alt="" />
+            </a>
+          </div>
+          <h3>
+            <a
+              href="https://htmlpreview.github.io/?https://github.com/suhailsola/set-2023-day-9/blob/main/Assesment/index.html"
+              target="_blank"
+              >Pokemon Game (Beta)</a
+            >
+          </h3>
+          <p>Pokemon?! More like chess or othello</p>
+        </div>
+      </div>
+    </div>
+    <div id="contact" class="contact">
+      <h1>Let's connect!</h1>
+      <div class="connect">
+        <div class="social-menu">
+          <ul>
+            <li>
+              <a href="https://github.com/" target="blank"
+                ><i class="fab fa-github"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/" target="blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/" target="blank"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <form action="/contact" method="post">
+          <label for="name">Name:</label>
+          <input type="name" name="name" id="name" />
+          <label for="email">Your Email:</label>
+          <input type="email" name="email" id="email" />
+          <label for="message">Enter you message here:</label>
+          <textarea name="message" id="message" cols="30" rows="10"></textarea>
+          <button id="Submit"><strong>Submit</strong></button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
