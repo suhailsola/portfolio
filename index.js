@@ -3,20 +3,34 @@ const express = require("express");
 const app = express();
 const port = 8080;
 const path = require("path");
+const bodyParser = require("body-parser");
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "views/pages/index.html"));
 });
 
 app.get("/thank-you", (req, res) => {
-  res.send("Thank you");
+  res.sendFile(path.join(__dirname, "views/pages/thank-you.html"));
 });
 
 app.get("/error", (req, res) => {
   res.send("Error");
+});
+
+// download resume
+app.get("/download", function (req, res) {
+  console.log("Download resume");
+
+  // Download function provided by express
+  res.download(path.join(__dirname, "/files/resume.pdf"), function (err) {
+    if (err) {
+      console.log(err);
+    }
+  });
 });
 
 app.listen(port, () => {

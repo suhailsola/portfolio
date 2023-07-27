@@ -46,8 +46,9 @@
           <h3>Hey, my name is</h3>
           <h1>Muhammad Suhail</h1>
           <p>
-            a developer-to-be at @invokeisdata. Always wanted to explore the
-            software industry and now here I am
+            a developer-to-be at @invokeisdata. <br />
+            I always wanted to indulge myself in the software industry and now
+            here I am.
           </p>
         </div>
       </div>
@@ -59,7 +60,9 @@
           <div class="profile-photo">
             <img src="assets/suhail.png" alt="" />
             <h4>Suhail | Software Developer-to-be</h4>
-            <button id="resume">Download Resume</button>
+            <form class="form-resume" action="/download" method="get">
+              <button id="resume">Download Resume</button>
+            </form>
           </div>
           <div class="bio">
             <!-- collapsible -->
@@ -69,10 +72,22 @@
               <div class="collapsible-content">
                 <div class="content-inner">
                   <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Earum obcaecati dolorem incidunt atque eos iure consequatur
-                    sequi dolorum, ab nemo sunt maiores aliquid dolores
-                    molestiae voluptatum, rerum suscipit! Aperiam, obcaecati.
+                    My name is Muhammad Suhail Bin Mohd Solahuddin, and I used
+                    to work as Semiconductor Product Validation Engineer before
+                    I started here. I am passionate about software development
+                    and was always looking to divert my career path, and luckily
+                    able to start my journey here. <br />Throughout my journey,
+                    I have gained valuable experience in contributing to the
+                    product development at my former company UST Global Sdn Bhd.
+                    I am known for my friendliness and being approachable.
+                    <br />In my free time, I enjoy playing football,futsal, and
+                    badminton. Sometimes when money is not tight I enroll myself
+                    to go hiking and join some running events. I find these
+                    activities helped me to interact with people and put me in
+                    some unexpected situations like the one that I am doing
+                    right now. <br />I am excited to kickstart my journey here
+                    and learn more about developing things that will help me
+                    make a better future for me and the world.
                   </p>
                 </div>
               </div>
@@ -82,12 +97,16 @@
               <label for="edu" class="lbl-toggle">Education</label>
               <div class="collapsible-content">
                 <div class="content-inner">
+                  <h4>
+                    International Islamic University Malaysia (IIUM) - 2017 -
+                    2021
+                  </h4>
                   <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Similique officia voluptate minima omnis explicabo maiores
-                    totam ipsam voluptatum eveniet vero aspernatur, cumque optio
-                    dolorem impedit, asperiores possimus rem, odio soluta.
+                    Bachelor of Engineering in Electronics - Computer and
+                    Information
                   </p>
+                  <h4>UNIVERSITI TEKNOLOGI MALAYSIA - 2013 - 2016</h4>
+                  <p>Diploma of Electrical Engineering (Electronics)</p>
                 </div>
               </div>
             </div>
@@ -96,12 +115,14 @@
               <label for="exp" class="lbl-toggle">Experience</label>
               <div class="collapsible-content">
                 <div class="content-inner">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Similique, illo optio quam sequi, obcaecati doloremque error
-                    delectus soluta, enim impedit unde vero itaque iure ipsa.
-                    Nisi necessitatibus totam laudantium facere?
-                  </p>
+                  <h4>
+                    UST GLOBAL SDN. BHD., Penang - DECEMBER 2021 - JUNE 2023
+                  </h4>
+                  <p>Semiconductor Product Validation</p>
+                  <h4>
+                    UST GLOBAL SDN. BHD., Penang - MAY 2021 - NOVEMBER 2021
+                  </h4>
+                  <p>IGNITE MyStep Candidate</p>
                 </div>
               </div>
             </div>
@@ -117,23 +138,38 @@
                 <div class="slideshow-container fade">
                   <!-- Full images with numbers and message Info -->
                   <div class="photos">
-                    <img src="./assets/IMG_9301.JPG" style="width: 100%" />
+                    <img
+                      id="photos"
+                      src="./assets/football/IMG_9301.JPG"
+                      style="width: 100%"
+                    />
                   </div>
                   <div class="photos">
-                    <img src="./assets/ACK_3323.JPG" style="width: 100%" />
+                    <img
+                      src="./assets/football/ACK_3323.JPG"
+                      style="width: 100%"
+                    />
                   </div>
 
                   <div class="photos">
-                    <img src="./assets/ACK_3324.JPG" style="width: 100%" />
+                    <img
+                      src="./assets/football/ACK_3324.JPG"
+                      style="width: 100%"
+                    />
                   </div>
 
                   <div class="photos">
-                    <img src="./assets/ACK_3398.JPG" style="width: 100%" />
+                    <img
+                      src="./assets/football/ACK_3398.JPG"
+                      style="width: 100%"
+                    />
                   </div>
 
                   <!-- Back and forward buttons -->
-                  <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
-                  <a class="forward" onclick="plusSlides(1)">&#10095;</a>
+                  <a class="Back" onclick="plusSlidesFootball(-1)">&#10094;</a>
+                  <a class="forward" onclick="plusSlidesFootball(1)"
+                    >&#10095;</a
+                  >
                 </div>
               </div>
             </div>
@@ -143,24 +179,20 @@
                 <!-- Slideshow container -->
                 <div class="slideshow-container fade">
                   <!-- Full images with numbers and message Info -->
-                  <div class="photos">
-                    <img src="./assets/IMG_9301.JPG" style="width: 100%" />
+                  <div class="hike-photos">
+                    <img src="./assets/hiking/1.jpg" style="width: 100%" />
                   </div>
-                  <div class="photos">
-                    <img src="./assets/ACK_3323.JPG" style="width: 100%" />
-                  </div>
-
-                  <div class="photos">
-                    <img src="./assets/ACK_3324.JPG" style="width: 100%" />
+                  <div class="hike-photos">
+                    <img src="./assets/hiking/2.jpg" style="width: 100%" />
                   </div>
 
-                  <div class="photos">
-                    <img src="./assets/ACK_3398.JPG" style="width: 100%" />
+                  <div class="hike-photos">
+                    <img src="./assets/hiking/3.jpg" style="width: 100%" />
                   </div>
 
                   <!-- Back and forward buttons -->
-                  <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
-                  <a class="forward" onclick="plusSlides(1)">&#10095;</a>
+                  <a class="Back" onclick="plusSlidesHiking(-1)">&#10094;</a>
+                  <a class="forward" onclick="plusSlidesHiking(1)">&#10095;</a>
                 </div>
               </div>
             </div>
@@ -170,24 +202,20 @@
                 <!-- Slideshow container -->
                 <div class="slideshow-container fade">
                   <!-- Full images with numbers and message Info -->
-                  <div class="photos">
-                    <img src="./assets/IMG_9301.JPG" style="width: 100%" />
+                  <div class="run-photos">
+                    <img src="./assets/running/1.jpg" style="width: 100%" />
                   </div>
-                  <div class="photos">
-                    <img src="./assets/ACK_3323.JPG" style="width: 100%" />
-                  </div>
-
-                  <div class="photos">
-                    <img src="./assets/ACK_3324.JPG" style="width: 100%" />
+                  <div class="run-photos">
+                    <img src="./assets/running/2.jpg" style="width: 100%" />
                   </div>
 
-                  <div class="photos">
-                    <img src="./assets/ACK_3398.JPG" style="width: 100%" />
+                  <div class="run-photos">
+                    <img src="./assets/running/3.JPG" style="width: 100%" />
                   </div>
 
                   <!-- Back and forward buttons -->
-                  <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
-                  <a class="forward" onclick="plusSlides(1)">&#10095;</a>
+                  <a class="Back" onclick="plusSlidesRunning(-1)">&#10094;</a>
+                  <a class="forward" onclick="plusSlidesRunning(1)">&#10095;</a>
                 </div>
               </div>
             </div>
