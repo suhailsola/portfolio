@@ -1,0 +1,25 @@
+---
+import { getCollection, render } from "astro:content";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<SiteLayout title={post.data.title} description={post.data.description}>
+  <article class="section-wrap article-page">
+    <a class="text-link back-link" href="/blog/">← Back to writing</a>
+    <header class="article-header">
+      <p class="eyebrow">{post.data.pubDate.toLocaleDateString("en", { year: "numeric", month: "long", day: "numeric" })}</p>
+      <h1>{post.data.title}</h1>
+      <p class="article-lede">{post.data.description}</p>
+      <div class="tag-list">{post.data.tags.map((tag) => <span>{tag}</span>)}</div>
+    </header>
+    <div class="article-body"><Content /></div>
+  </article>
+</SiteLayout>

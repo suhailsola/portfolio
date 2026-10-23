@@ -1,0 +1,80 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects";
+
+const featuredProjects = projects.slice(0, 2);
+---
+
+<SiteLayout
+  title="Portfolio"
+  description="The portfolio of Muhammad Suhail Solah, a software developer in Malaysia."
+>
+  <section class="hero section-wrap">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="status-dot"></span> Software developer in progress · Malaysia</p>
+      <h1>Curious by nature.<br /><span>Building for the web.</span></h1>
+      <p class="hero-intro">
+        I’m Muhammad Suhail — a former product validation engineer learning,
+        creating, and finding my way through software development.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-dark" href="/projects/">Explore my work <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="mailto:suhailsola@hotmail.com">Get in touch</a>
+      </div>
+      <p class="hero-note">Currently exploring frontend development, thoughtful interfaces, and the details that make the web feel good.</p>
+    </div>
+    <div class="hero-art">
+      <div class="hero-orbit orbit-one"></div>
+      <div class="hero-orbit orbit-two"></div>
+      <div class="hero-stamp">HELLO<br />WORLD<span>✳</span></div>
+      <img src="/assets/suhail-no-bg.png" alt="Portrait of Muhammad Suhail" />
+      <span class="art-caption">A little bit of code,<br />a lot of curiosity.</span>
+    </div>
+    <span class="hero-index">01 — 04</span>
+  </section>
+
+  <section class="intro-band">
+    <div class="section-wrap intro-grid">
+      <p class="eyebrow">A little about me</p>
+      <div>
+        <h2>From testing silicon to <span>building software.</span></h2>
+        <p>
+          Before getting into software, I worked in semiconductor product validation.
+          I bring that same curiosity and care for details to every new thing I build.
+        </p>
+        <a class="text-link" href="/blog/">Read my notes <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-wrap section-block">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Selected work · 01</p>
+        <h2>Things I’ve <span>been making.</span></h2>
+      </div>
+      <a class="text-link" href="/projects/">All projects <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="project-grid">
+      {featuredProjects.map((project, index) => <ProjectCard project={project} index={index} />)}
+    </div>
+  </section>
+
+  <section class="lab-band">
+    <div class="section-wrap lab-callout">
+      <div class="lab-mark" aria-hidden="true">Aa</div>
+      <div>
+        <p class="eyebrow">A playground for the details</p>
+        <h2>Type, color, motion.<br /><span>Little things worth noticing.</span></h2>
+      </div>
+      <a class="button button-light" href="/showcase/">Visit the frontend lab <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <section class="section-wrap contact-band">
+    <p class="eyebrow">Have something in mind?</p>
+    <h2>Let’s make something <span>meaningful.</span></h2>
+    <a class="button button-dark" href="mailto:suhailsola@hotmail.com">Start a conversation <span aria-hidden="true">↗</span></a>
+  </section>
+</SiteLayout>

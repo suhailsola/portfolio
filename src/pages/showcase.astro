@@ -1,0 +1,58 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+const colors = [
+  { name: "Pine", value: "#203d32" },
+  { name: "Moss", value: "#b5c5a1" },
+  { name: "Clay", value: "#c96f4a" },
+  { name: "Paper", value: "#f5f2e9" },
+];
+---
+
+<SiteLayout
+  title="Frontend Lab"
+  description="A small frontend and CSS playground exploring color, typography, buttons, and layout."
+>
+  <section class="page-hero section-wrap showcase-hero">
+    <p class="eyebrow">Frontend lab · 02</p>
+    <h1>Trying things.<br /><span>Noticing details.</span></h1>
+    <p class="page-lede">A small playground for CSS, interface ideas, and the visual decisions that turn a page into an experience.</p>
+  </section>
+  <section class="section-wrap showcase-content">
+    <div class="showcase-heading">
+      <p class="eyebrow">01 — Color study</p>
+      <h2>A palette with <span>earth under its feet.</span></h2>
+      <p>Deep pine and warm paper, with moss and clay for a little contrast.</p>
+    </div>
+    <div class="swatch-grid">
+      {colors.map((color) => (
+        <div class="swatch" style={`--swatch: ${color.value}`}>
+          <div class="swatch-color"></div>
+          <div><strong>{color.name}</strong><code>{color.value}</code></div>
+        </div>
+      ))}
+    </div>
+
+    <div class="showcase-heading type-study">
+      <p class="eyebrow">02 — Type in context</p>
+      <h2>Good type gives the page <span>a voice.</span></h2>
+      <p>Pair a confident display face with readable body copy and generous breathing room.</p>
+    </div>
+    <div class="type-specimen">
+      <span class="eyebrow">The quick brown fox</span>
+      <p class="specimen-large">Ideas grow<br />when we make.</p>
+      <p class="specimen-body">A quick visual study in scale, rhythm, and readable contrast. The best interface details often feel simple because the hard decisions happened before you noticed them.</p>
+    </div>
+
+    <div class="showcase-heading motion-study">
+      <p class="eyebrow">03 — Interaction states</p>
+      <h2>Little moments of <span>feedback.</span></h2>
+      <p>Hover the buttons. Focus them with your keyboard. Every state should feel intentional.</p>
+    </div>
+    <div class="button-specimen">
+      <a class="button button-dark" href="/projects/">Primary action <span aria-hidden="true">↗</span></a>
+      <a class="button button-outline" href="/blog/">Quiet action <span aria-hidden="true">↗</span></a>
+      <span class="focus-hint">Try Tab ↹</span>
+    </div>
+  </section>
+</SiteLayout>

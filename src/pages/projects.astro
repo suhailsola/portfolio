@@ -1,0 +1,21 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects";
+---
+
+<SiteLayout
+  title="Projects"
+  description="A collection of web projects and experiments by Muhammad Suhail Solah."
+>
+  <section class="page-hero section-wrap">
+    <p class="eyebrow">Selected work · 01</p>
+    <h1>Small steps.<br /><span>Real things made.</span></h1>
+    <p class="page-lede">A growing collection of projects, experiments, and lessons from my journey into software development.</p>
+  </section>
+  <section class="section-wrap page-content">
+    <div class="project-grid project-grid-all">
+      {projects.map((project, index) => <ProjectCard project={project} index={index} />)}
+    </div>
+  </section>
+</SiteLayout>
