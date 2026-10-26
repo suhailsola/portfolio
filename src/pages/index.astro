@@ -8,21 +8,20 @@ const featuredProjects = projects.slice(0, 2);
 
 <SiteLayout
   title="Portfolio"
-  description="The portfolio of Muhammad Suhail Solah, a software developer in Malaysia."
+  description="The portfolio of Muhammad Suhail Solah, a Fullstack Developer in Malaysia."
 >
   <section class="hero section-wrap">
     <div class="hero-copy">
-      <p class="eyebrow"><span class="status-dot"></span> Software developer in progress · Malaysia</p>
+      <p class="eyebrow"><span class="status-dot"></span> Fullstack developer · Malaysia</p>
       <h1>Curious by nature.<br /><span>Building for the web.</span></h1>
       <p class="hero-intro">
-        I’m Muhammad Suhail — a former product validation engineer learning,
-        creating, and finding my way through software development.
+        I’m Muhammad Suhail, a Fullstack Developer building thoughtful web experiences from interface to application.
       </p>
       <div class="hero-actions">
         <a class="button button-dark" href="/projects/">Explore my work <span aria-hidden="true">↗</span></a>
-        <a class="text-link" href="mailto:suhailsola@hotmail.com">Get in touch</a>
+        <a class="button button-secondary" href="mailto:suhailsola@hotmail.com">Get in touch</a>
       </div>
-      <p class="hero-note">Currently exploring frontend development, thoughtful interfaces, and the details that make the web feel good.</p>
+      <p class="hero-note">I care about thoughtful interfaces, reliable functionality, and the details that make the web feel good.</p>
     </div>
     <div class="hero-art">
       <div class="hero-orbit orbit-one"></div>
@@ -31,17 +30,15 @@ const featuredProjects = projects.slice(0, 2);
       <img src="/assets/suhail-no-bg.png" alt="Portrait of Muhammad Suhail" />
       <span class="art-caption">A little bit of code,<br />a lot of curiosity.</span>
     </div>
-    <span class="hero-index">01 — 04</span>
   </section>
 
   <section class="intro-band">
     <div class="section-wrap intro-grid">
       <p class="eyebrow">A little about me</p>
       <div>
-        <h2>From testing silicon to <span>building software.</span></h2>
+        <h2>Thoughtful ideas, <span>built end to end.</span></h2>
         <p>
-          Before getting into software, I worked in semiconductor product validation.
-          I bring that same curiosity and care for details to every new thing I build.
+          I build fullstack web applications with care for the complete experience, from the first interaction to the functionality behind it.
         </p>
         <a class="text-link" href="/blog/">Read my notes <span aria-hidden="true">↗</span></a>
       </div>
@@ -51,13 +48,54 @@ const featuredProjects = projects.slice(0, 2);
   <section class="section-wrap section-block">
     <div class="section-heading">
       <div>
-        <p class="eyebrow">Selected work · 01</p>
+        <p class="eyebrow">Selected work</p>
         <h2>Things I’ve <span>been making.</span></h2>
       </div>
       <a class="text-link" href="/projects/">All projects <span aria-hidden="true">↗</span></a>
     </div>
     <div class="project-grid">
       {featuredProjects.map((project, index) => <ProjectCard project={project} index={index} />)}
+    </div>
+  </section>
+
+  <section class="experience-section">
+    <div class="section-wrap">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Career</p>
+          <h2>Where I’ve <span>worked.</span></h2>
+        </div>
+      </div>
+      <ul class="experience-list">
+        <li class="experience-item">
+          <div>
+            <h3>Stampede Design</h3>
+            <p>Fullstack Developer</p>
+          </div>
+          <time>October 2024 – Present</time>
+        </li>
+        <li class="experience-item">
+          <div>
+            <h3>Invoke Solution</h3>
+            <p>Software Developer</p>
+          </div>
+          <time>July 2023 – October 2024</time>
+        </li>
+        <li class="experience-item">
+          <div>
+            <h3>UST Global</h3>
+            <p>Semiconductor Product Validation</p>
+          </div>
+          <time>December 2021 – July 2023</time>
+        </li>
+        <li class="experience-item">
+          <div>
+            <h3>UST Global</h3>
+            <p>IGNITE MySTEP Candidate</p>
+          </div>
+          <time>May 2021 – November 2021</time>
+        </li>
+      </ul>
     </div>
   </section>
 

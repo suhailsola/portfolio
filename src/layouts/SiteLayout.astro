@@ -20,6 +20,15 @@ const { title, description } = Astro.props;
     <meta name="theme-color" content="#f5f2e9" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title} | Suhail Solahuddin</title>
+    <script is:inline>
+      const savedTheme = localStorage.getItem("theme");
+      document.documentElement.dataset.theme =
+        savedTheme === "dark" || savedTheme === "light"
+          ? savedTheme
+          : window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+    </script>
   </head>
   <body>
     <SiteHeader />

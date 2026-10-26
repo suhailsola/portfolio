@@ -11,15 +11,14 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft))
   description="Notes on learning software development, frontend craft, and the process of making things."
 >
   <section class="page-hero section-wrap">
-    <p class="eyebrow">Writing · 03</p>
+    <p class="eyebrow">Writing</p>
     <h1>Notes from<br /><span>the learning curve.</span></h1>
     <p class="page-lede">Thoughts, lessons, and small discoveries from making my way into software development.</p>
   </section>
   <section class="section-wrap page-content">
     <div class="post-list">
-      {posts.map((post, index) => (
+      {posts.map((post) => (
         <article class="post-row">
-          <span class="post-number">0{index + 1}</span>
           <div class="post-copy">
             <p class="eyebrow">{post.data.pubDate.toLocaleDateString("en", { year: "numeric", month: "long", day: "numeric" })}</p>
             <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
