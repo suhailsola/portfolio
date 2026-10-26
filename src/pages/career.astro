@@ -1,0 +1,34 @@
+---
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import { experience } from "@/data/experience";
+---
+
+<SiteLayout
+  title="Career"
+  description="Career experience and selected contributions of Muhammad Suhail Solahuddin, Fullstack Developer."
+>
+  <section class="page-hero section-wrap">
+    <p class="eyebrow">Career</p>
+    <h1>Building software.<br /><span>Working together.</span></h1>
+    <p class="page-lede">My experience spans full-stack product development, API integrations, frontend delivery, and semiconductor validation.</p>
+  </section>
+  <section class="section-wrap page-content career-content">
+    <div class="career-list">
+      {experience.map(({ company, role, period, highlights }) => (
+        <article class="career-entry">
+          <header class="career-entry-header">
+            <div>
+              <h2>{company}</h2>
+              <p>{role}</p>
+            </div>
+            <time>{period}</time>
+          </header>
+          <ul>
+            {highlights.map((highlight) => <li>{highlight}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+    <a class="text-link career-back-link" href="/"><span class="text-link-label">Back to home</span> <span aria-hidden="true">↗</span></a>
+  </section>
+</SiteLayout>

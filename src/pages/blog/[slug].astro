@@ -1,6 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
-import SiteLayout from "../../layouts/SiteLayout.astro";
+import SiteLayout from "@/layouts/SiteLayout.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
@@ -13,7 +13,7 @@ const { Content } = await render(post);
 
 <SiteLayout title={post.data.title} description={post.data.description}>
   <article class="section-wrap article-page">
-    <a class="text-link back-link" href="/blog/">← Back to writing</a>
+    <a class="text-link back-link" href="/blog/"><span aria-hidden="true">← </span><span class="text-link-label">Back to writing</span></a>
     <header class="article-header">
       <p class="eyebrow">{post.data.pubDate.toLocaleDateString("en", { year: "numeric", month: "long", day: "numeric" })}</p>
       <h1>{post.data.title}</h1>

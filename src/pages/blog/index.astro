@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import SiteLayout from "../../layouts/SiteLayout.astro";
+import SiteLayout from "@/layouts/SiteLayout.astro";
 
 const posts = (await getCollection("blog", ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
