@@ -13,13 +13,28 @@ const { Content } = await render(post);
 
 <SiteLayout title={post.data.title} description={post.data.description}>
   <article class="section-wrap article-page">
-    <a class="text-link back-link" href="/blog/"><span aria-hidden="true">← </span><span class="text-link-label">Back to writing</span></a>
+    <a class="text-link back-link" href="/blog/">
+      <span aria-hidden="true">← </span>
+      <span class="text-link-label">Back to writing</span>
+    </a>
     <header class="article-header">
-      <p class="eyebrow">{post.data.pubDate.toLocaleDateString("en", { year: "numeric", month: "long", day: "numeric" })}</p>
+      <p class="eyebrow">
+        {post.data.pubDate.toLocaleDateString("en", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })}
+      </p>
       <h1>{post.data.title}</h1>
       <p class="article-lede">{post.data.description}</p>
-      <div class="tag-list">{post.data.tags.map((tag) => <span>{tag}</span>)}</div>
+      <div class="tag-list">
+        {post.data.tags.map((tag) => (
+          <span>{tag}</span>
+        ))}
+      </div>
     </header>
-    <div class="article-body"><Content /></div>
+    <div class="article-body">
+      <Content />
+    </div>
   </article>
 </SiteLayout>
