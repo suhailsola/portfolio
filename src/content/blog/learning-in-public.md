@@ -1,18 +1,18 @@
 ---
-title: "Learning in public, one small project at a time"
-description: "Why I’m collecting the experiments, questions, and lessons from learning to build for the web."
+title: "Small experiments, useful lessons"
+description: "How small frontend experiments can help test ideas, reveal details, and improve the work that follows."
 pubDate: 2026-10-23
 tags:
   - Learning
   - Process
 ---
 
-I used to work in semiconductor product validation. Moving toward software development has meant learning a different set of tools, habits, and ways to solve problems.
+Small frontend experiments are a useful way to test an idea before it becomes part of a larger project. They make it easier to compare choices, spot rough edges, and focus on one detail at a time.
 
-I’m starting this journal to keep a record of that process: what I try, what surprises me, and what I would do differently next time. The goal is not to present every experiment as a finished product. It’s to make the learning visible.
+This journal collects those ideas and lessons from the work. Not every experiment needs to become a finished feature; sometimes its value is simply helping clarify what works and why.
 
-## Start small, keep going
+## Test one idea at a time
 
-A small project gives an idea somewhere to become real. It can reveal the questions a tutorial skips over: how a page should respond at a narrow width, what happens when a button is used with a keyboard, or how to make the next change without breaking the last one.
+A focused experiment can answer practical questions: how a layout behaves on a narrow screen, whether a focus state is easy to see, or how a type choice affects readability. Looking at one question at a time makes the result easier to understand and apply.
 
-Those details add up. I want this portfolio to show the work and the thinking behind it, and I’ll keep updating it as I learn.
+Those details add up. I’ll use this space to share the thinking behind selected work and the useful lessons that come from refining it.

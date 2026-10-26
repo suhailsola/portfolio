@@ -11,27 +11,30 @@ const colors = [
 
 <SiteLayout
   title="Frontend Playground"
-  description="Interactive frontend experiments by Muhammad Suhail Solah, exploring interface design, typography, color, and motion."
+  description="A visual study by Muhammad Suhail Solah exploring the color, typography, and interaction details that shape a web interface."
 >
   <section class="page-hero section-wrap showcase-hero">
-    <p class="eyebrow">Frontend lab</p>
+    <p class="eyebrow">Interface experiments</p>
     <h1>
-      Trying things.
+      The details matter.
       <br />
-      <span>Noticing details.</span>
+      <span>Here’s a closer look.</span>
     </h1>
     <p class="page-lede">
-      A small playground for CSS, interface ideas, and the visual decisions that
-      turn a page into an experience.
+      A collection of visual studies in color, type, and interaction—the small
+      decisions that make an interface feel clear and considered.
     </p>
   </section>
   <section class="section-wrap showcase-content">
     <div class="showcase-heading">
       <p class="eyebrow">Color study</p>
       <h2>
-        A palette with <span>earth under its feet.</span>
+        A grounded, <span>versatile palette.</span>
       </h2>
-      <p>Deep pine and warm paper, with moss and clay for a little contrast.</p>
+      <p>
+        Deep pine and warm paper set the foundation; moss and clay add contrast
+        where it helps.
+      </p>
     </div>
     <div class="swatch-grid">
       {colors.map((color) => (
@@ -48,11 +51,11 @@ const colors = [
     <div class="showcase-heading type-study">
       <p class="eyebrow">Type in context</p>
       <h2>
-        Good type gives the page <span>a voice.</span>
+        Typography sets <span>the tone.</span>
       </h2>
       <p>
-        Pair a confident display face with readable body copy and generous
-        breathing room.
+        A display face brings character. Readable body text and generous spacing
+        keep the page easy to follow.
       </p>
     </div>
     <div class="type-specimen">
@@ -63,28 +66,27 @@ const colors = [
         when we make.
       </p>
       <p class="specimen-body">
-        A quick visual study in scale, rhythm, and readable contrast. The best
-        interface details often feel simple because the hard decisions happened
-        before you noticed them.
+        This study pairs expressive headings with straightforward body text,
+        using scale and spacing to create a clear reading rhythm.
       </p>
     </div>
 
     <div class="showcase-heading motion-study">
       <p class="eyebrow">Interaction states</p>
       <h2>
-        Little moments of <span>feedback.</span>
+        Small details, <span>clear feedback.</span>
       </h2>
       <p>
-        Hover the buttons. Focus them with your keyboard. Every state should
-        feel intentional.
+        Hover the links or use Tab to reach them. Their focus states should be
+        easy to see and consistent with the rest of the page.
       </p>
     </div>
     <div class="button-specimen">
       <a class="button button-dark" href="/projects/">
-        Primary action <span aria-hidden="true">↗</span>
+        Primary link <span aria-hidden="true">↗</span>
       </a>
       <a class="button button-outline" href="/blog/">
-        Quiet action <span aria-hidden="true">↗</span>
+        Secondary link <span aria-hidden="true">↗</span>
       </a>
       <span class="focus-hint">Try Tab ↹</span>
     </div>

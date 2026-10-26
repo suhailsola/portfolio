@@ -10,8 +10,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Daily spending calculator",
-    description:
-      "A small calculator concept for keeping track of daily spending.",
+    description: "A JavaScript calculator concept for tracking daily spending.",
     image: "/assets/calculator.jpg",
     imageAlt: "Preview of the daily spending calculator",
     href: "https://htmlpreview.github.io/?https://github.com/suhailsola/set-2023-day-7/blob/main/Assesment/index.html",
@@ -19,7 +18,7 @@ export const projects: Project[] = [
   },
   {
     title: "Dictionary",
-    description: "A lightweight reference for unfamiliar words and jargon.",
+    description: "A simple dictionary for looking up unfamiliar words.",
     image: "/assets/dict.png",
     imageAlt: "Preview of the dictionary project",
     href: "https://htmlpreview.github.io/?https://github.com/suhailsola/set-2023-day-9/blob/main/Assesment/Dictionary/index.html",
@@ -28,7 +27,7 @@ export const projects: Project[] = [
   {
     title: "Pokemon Game (Beta)",
     description:
-      "An early game experiment inspired by board games like chess and Othello.",
+      "An early Pokémon-themed board-game experiment inspired by chess and Othello.",
     image: "/assets/pokemon.jpg",
     imageAlt: "Artwork for the Pokemon game experiment",
     href: "https://htmlpreview.github.io/?https://github.com/suhailsola/set-2023-day-9/blob/main/Assesment/index.html",

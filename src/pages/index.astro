@@ -1,10 +1,6 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
-import ProjectCard from "@/components/ProjectCard.astro";
 import { experience } from "@/data/experience";
-import { projects } from "@/data/projects";
-
-const featuredProjects = projects.slice(0, 2);
 ---
 
 <SiteLayout
@@ -78,11 +74,10 @@ const featuredProjects = projects.slice(0, 2);
         <span aria-hidden="true">↗</span>
       </a>
     </div>
-    <div class="project-grid">
-      {featuredProjects.map((project, index) => (
-        <ProjectCard project={project} index={index} />
-      ))}
-    </div>
+    <p class="project-status">
+      I’m refreshing this section with projects that best represent my current
+      work. Check back soon.
+    </p>
   </section>
 
   <section class="experience-section">
