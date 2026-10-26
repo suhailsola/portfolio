@@ -1,4 +1,31 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap");
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/fonts/dm-sans-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/dm-mono-regular-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/dm-mono-medium-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url("/fonts/playfair-display-latin.woff2") format("woff2");
+}
 
 :root {
   font-family: "DM Sans", sans-serif;
@@ -11,8 +38,9 @@
   --moss: #b5c5a1;
   --clay: #c96f4a;
   --clay-text: #9a4528;
+  --selection-bg: var(--clay-text);
   --paper: #f5f2e9;
-  --ink-soft: #637168;
+  --ink-soft: #5d6a61;
   --line: rgba(32, 61, 50, 0.18);
   --text: var(--pine);
   --page: var(--paper);
@@ -32,6 +60,7 @@
   --ink-soft: #b3beb6;
   --line: rgba(240, 238, 230, 0.18);
   --clay-text: #e6a184;
+  --selection-bg: #9a4528;
   --action-bg: var(--moss);
   --action-text: var(--pine);
   --action-hover: #c8d6b7;
@@ -78,7 +107,7 @@ img {
 }
 ::selection {
   color: var(--paper);
-  background: var(--clay);
+  background: var(--selection-bg);
 }
 
 .site-header {
@@ -641,9 +670,15 @@ a:focus-visible {
     color 180ms ease,
     transform 180ms ease;
 }
+.social-links .linkedin-link {
+  color: var(--ink-soft);
+}
 .social-links a:hover {
   color: var(--text);
   transform: translateY(-2px);
+}
+.social-links .linkedin-link:hover {
+  color: #0a66c2;
 }
 .social-links a:focus-visible {
   outline: 2px solid var(--clay);
@@ -652,6 +687,10 @@ a:focus-visible {
 .social-links svg {
   width: 24px;
   height: 24px;
+}
+.social-links .linkedin-link svg {
+  width: 32px;
+  height: 32px;
 }
 
 .page-hero {
