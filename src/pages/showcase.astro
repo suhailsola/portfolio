@@ -10,52 +10,62 @@ const colors = [
 ---
 
 <SiteLayout
-  title="Frontend Playground"
-  description="A visual study by Muhammad Suhail Solah exploring the color, typography, and interaction details that shape a web interface."
+  title="Visual Style Study"
+  description="A visual study of the colors, typography, and interface details used across this portfolio, with forest greens balanced by warm neutrals and subtle clay accents."
 >
   <section class="page-hero section-wrap showcase-hero">
-    <p class="eyebrow">Interface experiments</p>
+    <p class="eyebrow">Visual style study</p>
     <h1>
-      The details matter.
+      A little forest
       <br />
-      <span>Here’s a closer look.</span>
+      <span>in the interface.</span>
     </h1>
     <p class="page-lede">
-      A collection of visual studies in color, type, and interaction—the small
-      decisions that make an interface feel clear and considered.
+      A visual study of the colors, typography, and interface details used
+      across this portfolio. Forest greens set the tone, balanced with warm
+      neutrals and subtle clay accents.
     </p>
   </section>
   <section class="section-wrap showcase-content">
     <div class="showcase-heading">
       <p class="eyebrow">Color study</p>
       <h2>
-        A grounded, <span>versatile palette.</span>
+        A forest-inspired <span>palette.</span>
       </h2>
       <p>
-        Deep pine and warm paper set the foundation; moss and clay add contrast
-        where it helps.
+        Pine anchors the palette, with moss, clay, and warm paper adding
+        contrast and softness.
+      </p>
+      <p class="color-copy-status" role="status" aria-live="polite">
+        Click a swatch to copy its hex code.
       </p>
     </div>
     <div class="swatch-grid">
       {colors.map((color) => (
-        <div class="swatch" style={`--swatch: ${color.value}`}>
+        <button
+          class="swatch"
+          type="button"
+          style={`--swatch: ${color.value}`}
+          data-copy-color={color.value}
+          aria-label={`Copy ${color.name} color ${color.value}`}
+        >
           <div class="swatch-color"></div>
           <div>
             <strong>{color.name}</strong>
             <code>{color.value}</code>
           </div>
-        </div>
+        </button>
       ))}
     </div>
 
     <div class="showcase-heading type-study">
       <p class="eyebrow">Type in context</p>
       <h2>
-        Typography sets <span>the tone.</span>
+        Typography sets <span>the mood.</span>
       </h2>
       <p>
-        A display face brings character. Readable body text and generous spacing
-        keep the page easy to follow.
+        Expressive serif headings give the page a softer feel, while clean
+        sans-serif text keeps it comfortable to read.
       </p>
     </div>
     <div class="type-specimen">
@@ -66,29 +76,60 @@ const colors = [
         when we make.
       </p>
       <p class="specimen-body">
-        This study pairs expressive headings with straightforward body text,
-        using scale and spacing to create a clear reading rhythm.
+        Serif headlines add a little warmth; sans-serif body text keeps longer
+        copy easy to read.
       </p>
     </div>
 
     <div class="showcase-heading motion-study">
-      <p class="eyebrow">Interaction states</p>
+      <p class="eyebrow">Button styles</p>
       <h2>
-        Small details, <span>clear feedback.</span>
+        Clear feedback, <span>without the fuss.</span>
       </h2>
       <p>
-        Hover the links or use Tab to reach them. Their focus states should be
-        easy to see and consistent with the rest of the page.
+        A filled primary style and an outlined secondary style keep actions
+        distinct while fitting the same visual system.
       </p>
     </div>
-    <div class="button-specimen">
-      <a class="button button-dark" href="/projects/">
-        Primary link <span aria-hidden="true">↗</span>
-      </a>
-      <a class="button button-outline" href="/blog/">
-        Secondary link <span aria-hidden="true">↗</span>
-      </a>
-      <span class="focus-hint">Try Tab ↹</span>
+    <div
+      class="button-specimen"
+      role="group"
+      aria-label="Button style examples"
+    >
+      <button class="button button-dark" type="button">
+        Primary style
+      </button>
+      <button class="button button-outline" type="button">
+        Secondary style
+      </button>
+      <span class="focus-hint">Tab to preview the keyboard focus outline</span>
     </div>
   </section>
 </SiteLayout>
+
+<script>
+  const copyStatus =
+    document.querySelector<HTMLParagraphElement>(".color-copy-status");
+  const colorButtons =
+    document.querySelectorAll<HTMLButtonElement>("[data-copy-color]");
+
+  if (!copyStatus) {
+    throw new Error("Color copy status element was not found.");
+  }
+
+  for (const button of colorButtons) {
+    button.addEventListener("click", async () => {
+      const color = button.dataset.copyColor;
+      if (!color) {
+        throw new Error("Color swatch is missing its hex code.");
+      }
+
+      try {
+        await navigator.clipboard.writeText(color);
+        copyStatus.textContent = `${color} copied to clipboard.`;
+      } catch {
+        copyStatus.textContent = `Could not copy ${color}. You can select the hex code and copy it manually.`;
+      }
+    });
+  }
+</script>

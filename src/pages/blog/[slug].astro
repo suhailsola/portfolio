@@ -14,17 +14,19 @@ const { Content } = await render(post);
 <SiteLayout title={post.data.title} description={post.data.description}>
   <article class="section-wrap article-page">
     <a class="text-link back-link" href="/blog/">
-      <span aria-hidden="true">← </span>
-      <span class="text-link-label">Back to writing</span>
+      <span class="back-link-arrow" aria-hidden="true">
+        ←
+      </span>
+      <span class="text-link-label">All articles</span>
     </a>
     <header class="article-header">
-      <p class="eyebrow">
+      <time class="eyebrow" datetime={post.data.pubDate.toISOString()}>
         {post.data.pubDate.toLocaleDateString("en", {
           year: "numeric",
           month: "long",
           day: "numeric",
         })}
-      </p>
+      </time>
       <h1>{post.data.title}</h1>
       <p class="article-lede">{post.data.description}</p>
       <div class="tag-list">

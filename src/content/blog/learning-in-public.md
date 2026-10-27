@@ -1,18 +1,36 @@
 ---
-title: "Small experiments, useful lessons"
-description: "How small frontend experiments can help test ideas, reveal details, and improve the work that follows."
+title: "Notes on building useful software"
+description: "A few of the software engineering topics this blog will explore, from architecture and data to frontend and backend development."
 pubDate: 2026-10-23
 tags:
-  - Learning
-  - Process
+  - Software
+  - Engineering
 ---
 
-Small frontend experiments are a useful way to test an idea before it becomes part of a larger project. They make it easier to compare choices, spot rough edges, and focus on one detail at a time.
+Building software involves more than writing code. Choices about how an
+application is structured, how it handles data, and how its parts communicate
+all affect whether it is useful and maintainable.
 
-This journal collects those ideas and lessons from the work. Not every experiment needs to become a finished feature; sometimes its value is simply helping clarify what works and why.
+This blog is a place to write about those choices as I learn and work across the
+stack. I’m interested in the reasoning behind an implementation, not just the
+tools used to make it.
 
-## Test one idea at a time
+## Architecture and tradeoffs
 
-A focused experiment can answer practical questions: how a layout behaves on a narrow screen, whether a focus state is easy to see, or how a type choice affects readability. Looking at one question at a time makes the result easier to understand and apply.
+Architecture is not only about diagrams or choosing a framework. It is also
+about deciding where responsibilities belong, how services or modules fit
+together, and what complexity is worth taking on. I want to explore those
+tradeoffs in practical terms.
 
-Those details add up. I’ll use this space to share the thinking behind selected work and the useful lessons that come from refining it.
+## Data and the shape of an application
+
+Data decisions influence more than storage. The way information is modeled
+affects APIs, application behavior, and how clearly a product can answer the
+questions people use it for. These connections are worth making visible.
+
+## From interface to backend
+
+Frontend and backend work meet at the details: a clear interaction depends on
+reliable data and sensible API behavior, while backend decisions shape what an
+interface can communicate. I’ll use this space for notes on those connections,
+along with lessons from the process of building and refining software.

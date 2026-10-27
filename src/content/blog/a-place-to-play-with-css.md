@@ -1,20 +1,38 @@
 ---
-title: "A place to play with CSS"
-description: "A frontend showcase can be more than a gallery: it can be a place to experiment with color, type, and interaction."
+title: "A forest-inspired visual style"
+description: "Why this portfolio uses forest green, warm neutrals, expressive typography, and small interactive details."
 pubDate: 2026-10-23
 tags:
+  - Design
   - CSS
-  - Frontend
 ---
 
-I wanted a page in this portfolio that makes the small frontend decisions visible. Color, typography, spacing, and focus states are easy to overlook when they are scattered across a project.
+I wanted the portfolio to feel like mine without leaning on the familiar
+black-and-blue palette often used for developer sites. Forest green felt like a
+natural starting point: it is a color I like, and it gives the site a different
+mood without getting in the way of the work.
 
-## Make the experiment easy to read
+## Build a palette around contrast
 
-A useful showcase puts a few variations side by side and gives each one room to breathe. A color swatch can show its name and value. A type sample can show how a heading and paragraph work together. Buttons can demonstrate hover and keyboard focus states.
+The deep pine green carries the strongest emphasis, while warm paper keeps the
+page from feeling too dark or cold. Moss gives surfaces and accents a softer
+option; clay is reserved for smaller highlights.
 
-The page is not a finished component library. It is a workbench: a place to try an idea, see how it feels, and carry the useful parts into a project.
+Using several related colors helps each one do a job. The goal is not to make
+every section green, but to keep the palette recognizable while preserving
+contrast and readability.
 
-## Keep interaction thoughtful
+## Let typography add another note
 
-Hover is only one state. A control should also be easy to find and use with a keyboard. Visible focus, readable contrast, and a clear label make an experiment more useful to everyone.
+The headings use a more expressive serif, set against straightforward sans-serif
+body text. Small labels and color values use a monospaced face. The contrast
+helps distinguish headings, reading text, and supporting details without
+introducing a different visual style for every section.
+
+## Keep the examples useful
+
+The style study brings these choices together in one place: it shows the
+palette, type in context, and a couple of button treatments. The color swatches
+also copy their hex values when selected. It is a record of the design
+decisions used on this site, rather than a full component library or a set of
+standalone experiments.

@@ -8,33 +8,33 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
 ---
 
 <SiteLayout
-  title="Blog"
-  description="Articles and notes by Muhammad Suhail Solah on full-stack development, frontend engineering, and building for the web."
+  title="Writing"
+  description="Notes and articles by Muhammad Suhail Solahuddin on software development, architecture, data, and the decisions behind building useful products."
 >
-  <section class="page-hero section-wrap">
-    <p class="eyebrow">Articles &amp; notes</p>
+  <section class="page-hero section-wrap blog-hero">
+    <p class="eyebrow">Writing &amp; ideas</p>
     <h1>
-      Notes on
+      Thinking through
       <br />
-      <span>building for the web.</span>
+      <span>building software.</span>
     </h1>
     <p class="page-lede">
-      Practical notes on frontend work, interface details, and lessons from
-      building software.
+      Notes on software architecture, data, frontend and backend development,
+      and the decisions behind building useful products.
     </p>
   </section>
-  <section class="section-wrap page-content">
+  <section class="section-wrap page-content blog-listing">
     <div class="post-list">
       {posts.map((post) => (
         <article class="post-row">
           <div class="post-copy">
-            <p class="eyebrow">
+            <time class="eyebrow" datetime={post.data.pubDate.toISOString()}>
               {post.data.pubDate.toLocaleDateString("en", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
               })}
-            </p>
+            </time>
             <h2>
               <a href={`/blog/${post.id}/`}>{post.data.title}</a>
             </h2>
