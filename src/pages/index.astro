@@ -1,6 +1,8 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import { experience } from "@/data/experience";
+import ProjectCard from "@/components/ProjectCard.astro";
+import { projects } from "@/data/projects";
 ---
 
 <SiteLayout
@@ -74,10 +76,11 @@ import { experience } from "@/data/experience";
         <span aria-hidden="true">↗</span>
       </a>
     </div>
-    <p class="project-status">
-      I’m refreshing this section with projects that best represent my current
-      work. Check back soon.
-    </p>
+    <div class="project-grid">
+      {projects.map((project, index) => (
+        <ProjectCard project={project} index={index} />
+      ))}
+    </div>
   </section>
 
   <section class="experience-section">

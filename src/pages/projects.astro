@@ -1,21 +1,30 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import { projects } from "@/data/projects";
 ---
 
 <SiteLayout
   title="Projects"
-  description="A new selection of web applications and software projects by Muhammad Suhail Solah is in progress."
+  description="Explore web applications and software projects by Muhammad Suhail Solah."
 >
-  <section class="page-hero section-wrap">
+  <section class="page-hero projects-hero section-wrap">
     <p class="eyebrow">Projects</p>
     <h1>
-      A new selection
+      Ideas made into
       <br />
-      <span>is on the way.</span>
+      <span>working software.</span>
     </h1>
     <p class="page-lede">
-      I’m updating this page with projects that best represent my current work.
-      Check back soon.
+      A selection of projects exploring full-stack development, useful
+      interfaces, and thoughtful product experiences.
     </p>
+  </section>
+  <section class="section-wrap section-block">
+    <div class="project-grid">
+      {projects.map((project, index) => (
+        <ProjectCard project={project} index={index} />
+      ))}
+    </div>
   </section>
 </SiteLayout>

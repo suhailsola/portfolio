@@ -34,4 +34,4 @@ The static site is generated in `dist/`.
 
 Add blog posts as Markdown files in `src/content/blog/` with `title`, `description`, and `pubDate` frontmatter. Add `tags` as a list; set `draft: true` to keep a post out of the generated site.
 
-Static images and the resume are kept in `public/assets/` and `files/`.
+Static images used by the site are kept in `public/assets/`.
