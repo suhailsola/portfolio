@@ -14,44 +14,178 @@ const currentPath = Astro.url.pathname;
     suhail<span>.</span>
   </a>
   <div class="header-tools">
-    <nav aria-label="Main navigation">
+    <nav id="main-navigation" aria-label="Main navigation">
       {links.map(({ href, label }) => (
         <a href={href} aria-current={currentPath === href ? "page" : undefined}>
           {label}
         </a>
       ))}
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-label="Switch to dark mode"
+        aria-pressed="false"
+        title="Switch to dark mode"
+      >
+        <svg
+          class="theme-icon theme-icon-moon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M20.2 15.4A8.5 8.5 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4Z" />
+        </svg>
+        <svg
+          class="theme-icon theme-icon-sun"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l-1.42-1.42m11.3-11.3 1.42-1.42" />
+        </svg>
+      </button>
     </nav>
     <button
-      class="theme-toggle"
+      class="mobile-menu-toggle"
       type="button"
-      aria-label="Switch to dark mode"
-      aria-pressed="false"
-      title="Switch to dark mode"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="main-navigation"
     >
-      <svg
-        class="theme-icon theme-icon-moon"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path d="M20.2 15.4A8.5 8.5 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4Z" />
-      </svg>
-      <svg
-        class="theme-icon theme-icon-sun"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <circle cx="12" cy="12" r="4" />
-        <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" />
-      </svg>
+      <span class="mobile-menu-icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
     </button>
   </div>
+  <div class="mobile-nav-backdrop" aria-hidden="true" hidden></div>
 </header>
 
 <script>
   const siteHeader = document.querySelector<HTMLElement>(".site-header");
   const siteFooter = document.querySelector<HTMLElement>(".site-footer");
+  const siteMain = document.querySelector<HTMLElement>("main");
+  const siteWordmark = document.querySelector<HTMLElement>(
+    ".site-header > .wordmark",
+  );
   const themeToggle =
     document.querySelector<HTMLButtonElement>(".theme-toggle");
+  const mobileMenuToggle = document.querySelector<HTMLButtonElement>(
+    ".mobile-menu-toggle",
+  );
+  const mobileNavBackdrop = document.querySelector<HTMLElement>(
+    ".mobile-nav-backdrop",
+  );
+  const headerTools = document.querySelector<HTMLElement>(".header-tools");
+  const mainNavigation =
+    document.querySelector<HTMLElement>("#main-navigation");
+  const mobileNavigationQuery = window.matchMedia("(max-width: 760px)");
+  let headerVisible = true;
+  let footerVisible = false;
+
+  const updateFloatingToggle = () => {
+    if (!siteHeader || !themeToggle) return;
+
+    const menuOpen = siteHeader.classList.contains("mobile-menu-open");
+    const isFloating = !headerVisible && !footerVisible && !menuOpen;
+    themeToggle.classList.toggle("is-floating", isFloating);
+    siteHeader.classList.toggle("theme-toggle-floating", isFloating);
+    themeToggle.hidden = !menuOpen && !headerVisible && footerVisible;
+
+    if (mainNavigation && headerTools) {
+      if (!mobileNavigationQuery.matches || menuOpen || !isFloating) {
+        mainNavigation.append(themeToggle);
+      } else {
+        headerTools.append(themeToggle);
+      }
+    }
+  };
+
+  const setMobileMenuOpen = (isOpen: boolean, returnFocus = false) => {
+    if (!siteHeader || !mainNavigation || !mobileMenuToggle) return;
+
+    siteHeader.classList.toggle("mobile-menu-open", isOpen);
+    mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+    mobileMenuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Close navigation" : "Open navigation",
+    );
+    const shouldBlockPage = mobileNavigationQuery.matches && isOpen;
+    mainNavigation.inert = mobileNavigationQuery.matches && !isOpen;
+    if (siteMain) siteMain.inert = shouldBlockPage;
+    if (siteFooter) siteFooter.inert = shouldBlockPage;
+    if (siteWordmark) siteWordmark.inert = shouldBlockPage;
+    document.body.classList.toggle("mobile-menu-open", shouldBlockPage);
+    if (mobileNavBackdrop) {
+      mobileNavBackdrop.hidden = !isOpen;
+    }
+
+    if (!isOpen && returnFocus) {
+      mobileMenuToggle.focus();
+    } else if (isOpen) {
+      mainNavigation.querySelector<HTMLAnchorElement>("a")?.focus();
+    }
+    updateFloatingToggle();
+  };
+
+  if (mainNavigation) {
+    mainNavigation.inert = mobileNavigationQuery.matches;
+    mobileNavigationQuery.addEventListener("change", () => {
+      setMobileMenuOpen(false);
+      mainNavigation.inert = mobileNavigationQuery.matches;
+    });
+  }
+
+  mobileMenuToggle?.addEventListener("click", () => {
+    setMobileMenuOpen(
+      mobileMenuToggle.getAttribute("aria-expanded") !== "true",
+    );
+  });
+  mobileNavBackdrop?.addEventListener("click", () => {
+    setMobileMenuOpen(false, true);
+  });
+  mainNavigation?.addEventListener("click", (event) => {
+    if (event.target instanceof Element && event.target.closest("a")) {
+      setMobileMenuOpen(false);
+    }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (
+      event.key === "Escape" &&
+      mobileMenuToggle?.getAttribute("aria-expanded") === "true"
+    ) {
+      setMobileMenuOpen(false, true);
+      return;
+    }
+
+    if (
+      event.key === "Tab" &&
+      mobileMenuToggle?.getAttribute("aria-expanded") === "true" &&
+      mainNavigation
+    ) {
+      const focusableItems = [
+        ...mainNavigation.querySelectorAll("a"),
+        ...(themeToggle ? [themeToggle] : []),
+      ];
+      const firstItem = focusableItems[0];
+      const lastItem = focusableItems.at(-1);
+      const activeElement = document.activeElement;
+
+      if (event.shiftKey && activeElement === firstItem) {
+        event.preventDefault();
+        mobileMenuToggle.focus();
+      } else if (event.shiftKey && activeElement === mobileMenuToggle) {
+        event.preventDefault();
+        lastItem?.focus();
+      } else if (!event.shiftKey && activeElement === lastItem) {
+        event.preventDefault();
+        mobileMenuToggle.focus();
+      } else if (!event.shiftKey && activeElement === mobileMenuToggle) {
+        event.preventDefault();
+        firstItem?.focus();
+      }
+    }
+  });
 
   const updateThemeToggle = () => {
     const isDark = document.documentElement.dataset.theme === "dark";
@@ -64,15 +198,6 @@ const currentPath = Astro.url.pathname;
   updateThemeToggle();
 
   if (siteHeader && siteFooter && themeToggle) {
-    let headerVisible = true;
-    let footerVisible = false;
-
-    const updateFloatingToggle = () => {
-      const isFloating = !headerVisible;
-      themeToggle.classList.toggle("is-floating", isFloating);
-      themeToggle.hidden = isFloating && footerVisible;
-    };
-
     const headerObserver = new IntersectionObserver(([entry]) => {
       headerVisible = entry.isIntersecting;
       updateFloatingToggle();

@@ -1,11 +1,23 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import { experience } from "@/data/experience";
+
+const companyExperience = experience.reduce<
+  { company: string; roles: typeof experience }[]
+>((companies, position) => {
+  const currentCompany = companies.at(-1);
+  if (currentCompany?.company === position.company) {
+    currentCompany.roles.push(position);
+  } else {
+    companies.push({ company: position.company, roles: [position] });
+  }
+  return companies;
+}, []);
 ---
 
 <SiteLayout
   title="Career"
-  description="Explore Muhammad Suhail Solahuddin’s software development and product validation experience across full-stack applications, APIs, and testing."
+  description="Explore Muhammad Suhail Solahuddin’s career in full-stack development, API integrations, and semiconductor product validation."
 >
   <section class="page-hero section-wrap">
     <p class="eyebrow">Career</p>
@@ -15,32 +27,79 @@ import { experience } from "@/data/experience";
       <span>Working together.</span>
     </h1>
     <p class="page-lede">
-      My experience spans full-stack product development, API integrations,
-      frontend delivery, and semiconductor validation.
+      From validating server platforms to building applications, dashboards, and
+      APIs, I work across frontend and backend development. I partner with
+      designers, researchers, and product teams to turn requirements into
+      practical, maintainable software.
     </p>
   </section>
   <section class="section-wrap page-content career-content">
     <div class="career-list">
-      {experience.map(({ company, role, period, highlights }) => (
-        <article class="career-entry">
+      {companyExperience.map(({ company, roles }) => (
+        <article
+          class:list={[
+            "career-entry",
+            {
+              "career-entry-current": roles.some((role) =>
+                role.period.endsWith("Present"),
+              ),
+            },
+          ]}
+        >
           <header class="career-entry-header">
-            <div>
-              <h2>{company}</h2>
-              <p>{role}</p>
-            </div>
-            <time>{period}</time>
+            <h2>{company}</h2>
           </header>
-          <ul>
-            {highlights.map((highlight) => (
-              <li>{highlight}</li>
-            ))}
-          </ul>
+          {roles.map(({ role, period, stack, highlights }) => (
+            <section class="career-role">
+              <header class="career-role-header">
+                <div class="career-role-title">
+                  <h3>{role}</h3>
+                  {period.endsWith("Present") && (
+                    <span class="career-current">Current role</span>
+                  )}
+                </div>
+                <div class="career-entry-meta">
+                  <time>{period}</time>
+                </div>
+              </header>
+              {stack && (
+                <div class="career-stack-row">
+                  <svg
+                    class="career-stack-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="m12 3 9 5-9 5-9-5 9-5Z"
+                      stroke="currentColor"
+                      stroke-linejoin="round"
+                      stroke-width="1.7"
+                    />
+                    <path
+                      d="m3 12 9 5 9-5M3 16l9 5 9-5"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.7"
+                    />
+                  </svg>
+                  <ul class="career-stack" aria-label="Technologies used">
+                    {stack.map((technology) => (
+                      <li>{technology}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              <ul>
+                {highlights.map((highlight) => (
+                  <li>{highlight}</li>
+                ))}
+              </ul>
+            </section>
+          ))}
         </article>
       ))}
     </div>
-    <a class="text-link career-back-link" href="/">
-      <span class="text-link-label">Back to home</span>{" "}
-      <span aria-hidden="true">↗</span>
-    </a>
   </section>
 </SiteLayout>
